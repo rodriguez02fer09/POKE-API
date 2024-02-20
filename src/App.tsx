@@ -1,11 +1,13 @@
-import './App.css'
+import './App.scss'
 import Layout from './components/layout/src/Layout'
+import Title from './components/title/src/Title'
 
 const App: React.FC = () => {
   return (
     <>
-      <Layout />
-      <h1>POKEAPI</h1>
+      <Layout>
+        <Title />
+      </Layout>
     </>
   )
 }

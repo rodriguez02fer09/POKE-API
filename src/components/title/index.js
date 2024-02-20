@@ -1,3 +1,3 @@
-import Title from './src/Layout.jsx'
+import Title from './src/Title.js'
 
 export default Title

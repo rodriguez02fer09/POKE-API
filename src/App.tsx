@@ -1,11 +1,11 @@
 import './App.css'
+import Layout from './components/layout/src/Layout'
 
-function App() {
+const App: React.FC = () => {
   return (
     <>
-      <div className="card">
-        <h1>POKEAPI</h1>
-      </div>
+      <Layout />
+      <h1>POKEAPI</h1>
     </>
   )
 }

@@ -1,7 +1,7 @@
 import {ReactNode} from 'react'
 import '../../layout/style/desktop.css'
 
-type LayoutProps = {
+interface LayoutProps {
   children?: React.ReactNode
 }
 

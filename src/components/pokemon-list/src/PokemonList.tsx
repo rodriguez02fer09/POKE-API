@@ -1,42 +1,52 @@
+import React from 'react'
 import PokemonCard from '../../pokemon-card/src/PokemonCard'
 import '../style/desktop.scss'
 
+interface Type {
+  slot: number
+  type: {
+    name: string
+    url: string
+  }
+}
+
 interface Pokemon {
   name: string
+  height: number
+  weight: number
+  abilities: string[]
   sprites: {
     front_default: string
   }
-  types: {name: string}[]
+  types: Type[]
   id: number
+  locationData: any
 }
 
 interface PokemonListProps {
   pokemons: Pokemon[]
 }
 
-const PokemonList = (props: PokemonListProps) => {
+const PokemonList: React.FC<PokemonListProps> = ({pokemons}) => {
+  if (!Array.isArray(pokemons) || pokemons.length === 0) {
+    return <div>No hay pokemons disponibles</div>
+  }
+
   return (
     <div className="contain-pokemonList">
-      {props.pokemons.map(pokemon => {
-        return (
-          <PokemonCard
-            name={pokemon.name}
-            key={pokemon.name}
-            //image={pokemon.sprites.front_default}
-          />
-        )
-      })}
+      {pokemons.map((pokemon: Pokemon, index: number) => (
+        <PokemonCard
+          key={index}
+          name={pokemon.name}
+          height={pokemon.height}
+          weight={pokemon.weight}
+          abilities={pokemon.abilities.map(ability => ability.ability.name)}
+          types={pokemon.types.map(type => type.type.name)} // Mapear los nombres de los tipos
+          image={pokemon.sprites.front_default}
+        />
+      ))}
     </div>
   )
-}
-
-PokemonList.defaultProps = {
-  pokemons: Array(10).fill({
-    name: '',
-    sprites: {front_default: ''},
-    types: [],
-    id: 0,
-  }),
 }
 
 export default PokemonList

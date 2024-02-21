@@ -14,18 +14,18 @@ interface PokemonListProps {
   pokemons: Pokemon[]
 }
 
-const PokemonList: React.FC<PokemonListProps> = props => {
+const PokemonList = (props: PokemonListProps) => {
   return (
-    <div className="PokemonList">
-      {props.pokemons.map(pokemon => (
-        <PokemonCard
-          key={pokemon.name}
-          name={pokemon.name}
-          image={pokemon.sprites.front_default}
-          types={pokemon.types}
-          id={pokemon.id}
-        />
-      ))}
+    <div className="contain-pokemonList">
+      {props.pokemons.map(pokemon => {
+        return (
+          <PokemonCard
+            name={pokemon.name}
+            key={pokemon.name}
+            //image={pokemon.sprites.front_default}
+          />
+        )
+      })}
     </div>
   )
 }

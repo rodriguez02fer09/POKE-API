@@ -1,5 +1,3 @@
-import {Card} from 'antd'
-import Meta from 'antd/lib/card/Meta'
 import '../style/desktop.scss'
 
 interface PokemonCardProps {
@@ -10,17 +8,24 @@ interface PokemonCardProps {
 const PokemonCard = (props: PokemonCardProps) => {
   const {name, image} = props
   return (
-    <Card
-      title={name}
-      cover={
-        <img
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/132.png"
-          alt="Ditto"
-        />
-      }
-    >
-      <Meta description="fire, magic" />
-    </Card>
+    <div className="contain-pokemonCard">
+      <div>
+        <div>
+          <h3>{name}</h3>
+        </div>
+        <div>
+          <p>Heigth:</p>
+          <p>Weigth:</p>
+          <p>Abilities:</p>
+        </div>
+        <div>
+          <p>Type :</p>
+        </div>
+      </div>
+      <div>
+        <img src={image} alt={name} />
+      </div>
+    </div>
   )
 }
 export default PokemonCard

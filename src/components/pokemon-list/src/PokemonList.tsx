@@ -41,7 +41,7 @@ const PokemonList: React.FC<PokemonListProps> = ({pokemons}) => {
           height={pokemon.height}
           weight={pokemon.weight}
           abilities={pokemon.abilities.map(ability => ability.ability.name)}
-          types={pokemon.types.map(type => type.type.name)} // Mapear los nombres de los tipos
+          types={pokemon.types.map(type => type.type.name)}
           image={pokemon.sprites.front_default}
         />
       ))}

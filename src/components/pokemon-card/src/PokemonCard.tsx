@@ -17,19 +17,38 @@ const PokemonCard = ({
   weight,
   abilities,
   types,
-  locationData, // Propiedad opcional de información de ubicación
-}: PokemonCardProps) => {
+}: //locationData, // Propiedad opcional de información de ubicación
+PokemonCardProps) => {
+  const defaulContainer = 'card-container'
+  const pokemonDetail = 'pokemon-details'
+  const pokemonTitle = 'pokemon-title'
+  const pokemonCardDetail = 'pokemon-card-detail'
+  const pokemonTypes = 'pokemon-types'
   return (
-    <div className="pokemon-card-container">
-      <div className="pokemon-details">
-        <div>
-          <h3>{name}</h3>
+    <div className={defaulContainer}>
+      <div className={`${defaulContainer}--${pokemonDetail}`}>
+        <div
+          className={`${defaulContainer}--${pokemonDetail}__${pokemonTitle}`}
+        >
+          <h3>{name.charAt(0).toUpperCase() + name.slice(1)}</h3>
         </div>
-        <div>
+        <div
+          className={`${defaulContainer}--${pokemonDetail}__${pokemonCardDetail}`}
+        >
           <p>Height: {height}</p>
           <p>Weight: {weight}</p>
-          <p>Abilities: {abilities.join(', ')}</p>
-          <p>Type: {types.join(', ')}</p> <p>Places: {locationData}</p>
+          <p>Ability: {abilities.length > 0 ? abilities[0] : 'Unknown'}</p>
+          {/* <p>Abilities: {abilities.join(', ')}</p> */}
+          {/* <p>Places: {locationData}</p> */}
+        </div>
+        <div
+          className={`${defaulContainer}--${pokemonDetail}__${pokemonTypes}`}
+        >
+          <p>
+            {types
+              .map(type => type.charAt(0).toUpperCase() + type.slice(1))
+              .join('  ')}
+          </p>
         </div>
       </div>
       <div className="pokemon-image">

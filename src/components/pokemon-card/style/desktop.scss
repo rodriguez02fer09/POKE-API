@@ -1,6 +1,32 @@
-.contain-pokemonCard {
+.card-container {
   height: 150px;
   width: 335px;
   background-color: aqua;
   border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  &--pokemon-details {
+    height: 145px;
+    width: 155px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    &__pokemon-title {
+      margin-bottom: 10px;
+    }
+    &__pokemon-card-detail {
+      background-color: lightcoral;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 7px;
+    }
+    &__pokemon-types {
+      background-color: aliceblue;
+      width: 70px;
+      height: 30px;
+    }
+  }
 }

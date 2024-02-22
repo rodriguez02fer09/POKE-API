@@ -6,7 +6,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {getPokemon, getPokemonDetails} from '../api/index'
 
 //reducer
-import {setPokemons} from '../redux/slice'
+import {setPokemons, getByIdPokemon} from '../redux/slice'
 
 //Components
 import PokemonList from '../components/pokemon-list/src/PokemonList'
@@ -19,6 +19,7 @@ const CWAppPokemons = () => {
   const pokemons = useSelector((state: any) => state.pokemons)
 
   const [openModal, setOpenModal] = useState(false)
+  const [detailPokemon, setDetailPokemon] = useState({})
 
   useEffect(() => {
     const fetchPokemons = async () => {
@@ -36,7 +37,11 @@ const CWAppPokemons = () => {
     fetchPokemons()
   }, [])
 
-  const handleOpenModal = () => {
+  const handleOpenModal = (id: number) => {
+    const p = pokemons.pokemons.find(p => {
+      return p.id === id
+    })
+    setDetailPokemon(() => p)
     setOpenModal(true)
   }
   const handleCloseModal = () => {
@@ -46,10 +51,16 @@ const CWAppPokemons = () => {
   return (
     <>
       <Title />
-      <PokemonList openModal={handleOpenModal} pokemons={pokemons.pokemons} />
+      <PokemonList
+        handleOpenModal={handleOpenModal}
+        pokemons={pokemons.pokemons}
+      />
       {openModal && (
         <Modal>
-          <PokemonInformation closeModal={handleCloseModal} />
+          <PokemonInformation
+            pokemon={detailPokemon}
+            handleCloseModal={handleCloseModal}
+          />
         </Modal>
       )}
     </>

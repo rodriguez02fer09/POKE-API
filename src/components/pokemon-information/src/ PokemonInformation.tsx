@@ -5,10 +5,15 @@ import Close from '../../../assets/close.svg'
 import ImgPokemon from '../../img-pokemon/src/ImgPokemon'
 
 interface IPokemonInformation {
-  closeModal: () => void
+  pokemon: any
+  handleCloseModal: () => void
 }
 
-const PokemonInformation = ({closeModal}: IPokemonInformation) => {
+const PokemonInformation = ({
+  pokemon,
+  handleCloseModal,
+}: IPokemonInformation) => {
+  console.log(pokemon)
   return (
     <div>
       <div>
@@ -19,7 +24,7 @@ const PokemonInformation = ({closeModal}: IPokemonInformation) => {
             width="50px"
             onClick={() => {
               console.log('click')
-              closeModal()
+              handleCloseModal()
             }}
           />
         </button>
@@ -29,7 +34,7 @@ const PokemonInformation = ({closeModal}: IPokemonInformation) => {
       </div> */}
       <Staticstis />
       <PokemonPlaces />
-      <ImgPokemon />
+      <ImgPokemon pokemon={pokemon} />
     </div>
   )
 }

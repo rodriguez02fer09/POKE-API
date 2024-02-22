@@ -1,9 +1,9 @@
 import '../style/desktop.scss'
 
-const ImgPokemon = () => {
+const ImgPokemon = (pokemon: any) => {
   return (
     <div>
-      <img src="" alt="pokemon" />
+      <img src={pokemon.pokemon.sprites.front_default} alt="pokemon" />
     </div>
   )
 }

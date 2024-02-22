@@ -1,6 +1,7 @@
 import '../style/desktop.scss'
 
 interface PokemonCardProps {
+  id: number
   name: string
   image: string
   height: number
@@ -8,10 +9,11 @@ interface PokemonCardProps {
   abilities: string[]
   types: string[]
   locationData?: string // Propiedad opcional de información de ubicación
-  openModal: () => void
+  openModal: (id: number) => void
 }
 
 const PokemonCard = ({
+  id,
   name,
   image,
   height,
@@ -32,7 +34,7 @@ PokemonCardProps) => {
       className={defaulContainer}
       onClick={() => {
         console.log('click')
-        openModal()
+        openModal(id)
       }}
     >
       <div className={`${defaulContainer}--${pokemonDetail}`}>

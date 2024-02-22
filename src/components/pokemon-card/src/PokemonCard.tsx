@@ -28,7 +28,7 @@ PokemonCardProps) => {
   const pokemonTitle = 'pokemon-title'
   const pokemonCardDetail = 'pokemon-card-detail'
   const pokemonTypes = 'pokemon-types'
-
+  const pokemonImage = 'pokemonList-image'
   return (
     <div
       className={defaulContainer}
@@ -62,7 +62,7 @@ PokemonCardProps) => {
           </p>
         </div>
       </div>
-      <div className="pokemon-image">
+      <div className={`${defaulContainer}--${pokemonImage}`}>
         <img src={image} alt={name} />
       </div>
     </div>

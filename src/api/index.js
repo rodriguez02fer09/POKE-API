@@ -14,7 +14,17 @@ export const getPokemonDetails = pokemon => {
     .catch(err => console.log(err))
 }
 
+export const getPokemonTypes = async () => {
+  try {
+    const response = await axios.get('https://pokeapi.co/api/v2/type')
+    return response.data.results
+  } catch (error) {
+    console.error('Error fetching pokemon types:', error)
+  }
+}
+
 export default {
   getPokemon,
   getPokemonDetails,
+  getPokemonTypes,
 }

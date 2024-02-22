@@ -1,4 +1,4 @@
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
 
 import {useDispatch, useSelector} from 'react-redux'
 
@@ -11,10 +11,14 @@ import {setPokemons} from '../redux/slice'
 //Components
 import PokemonList from '../components/pokemon-list/src/PokemonList'
 import Title from '../components/title/src/Title'
+import Modal from '../components/modal/src/Modal'
+import PokemonInformation from '../components/pokemon-information/src/ PokemonInformation'
 
 const CWAppPokemons = () => {
   const dispatch = useDispatch()
   const pokemons = useSelector((state: any) => state.pokemons)
+
+  const [openModal, setOpenModal] = useState(false)
 
   useEffect(() => {
     const fetchPokemons = async () => {
@@ -32,10 +36,22 @@ const CWAppPokemons = () => {
     fetchPokemons()
   }, [])
 
+  const handleOpenModal = () => {
+    setOpenModal(true)
+  }
+  const handleCloseModal = () => {
+    setOpenModal(false)
+  }
+
   return (
     <>
       <Title />
-      <PokemonList pokemons={pokemons.pokemons} />
+      <PokemonList openModal={handleOpenModal} pokemons={pokemons.pokemons} />
+      {openModal && (
+        <Modal>
+          <PokemonInformation closeModal={handleCloseModal} />
+        </Modal>
+      )}
     </>
   )
 }

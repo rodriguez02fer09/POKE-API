@@ -8,6 +8,7 @@ interface PokemonCardProps {
   abilities: string[]
   types: string[]
   locationData?: string // Propiedad opcional de información de ubicación
+  openModal: () => void
 }
 
 const PokemonCard = ({
@@ -17,6 +18,7 @@ const PokemonCard = ({
   weight,
   abilities,
   types,
+  openModal,
 }: //locationData, // Propiedad opcional de información de ubicación
 PokemonCardProps) => {
   const defaulContainer = 'card-container'
@@ -24,8 +26,15 @@ PokemonCardProps) => {
   const pokemonTitle = 'pokemon-title'
   const pokemonCardDetail = 'pokemon-card-detail'
   const pokemonTypes = 'pokemon-types'
+
   return (
-    <div className={defaulContainer}>
+    <div
+      className={defaulContainer}
+      onClick={() => {
+        console.log('click')
+        openModal()
+      }}
+    >
       <div className={`${defaulContainer}--${pokemonDetail}`}>
         <div
           className={`${defaulContainer}--${pokemonDetail}__${pokemonTitle}`}

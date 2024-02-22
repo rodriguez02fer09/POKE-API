@@ -21,13 +21,14 @@ interface Pokemon {
   types: Type[]
   id: number
   locationData: any
+  openModal: () => void
 }
 
 interface PokemonListProps {
   pokemons: Pokemon[]
 }
 
-const PokemonList: React.FC<PokemonListProps> = ({pokemons}) => {
+const PokemonList: React.FC<PokemonListProps> = ({pokemons, openModal}) => {
   if (!Array.isArray(pokemons) || pokemons.length === 0) {
     return <div>No hay pokemons disponibles</div>
   }
@@ -43,6 +44,7 @@ const PokemonList: React.FC<PokemonListProps> = ({pokemons}) => {
           abilities={pokemon.abilities.map(ability => ability.ability.name)}
           types={pokemon.types.map(type => type.type.name)}
           image={pokemon.sprites.front_default}
+          openModal={openModal}
         />
       ))}
     </div>

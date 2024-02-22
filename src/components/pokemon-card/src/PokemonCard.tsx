@@ -55,11 +55,11 @@ PokemonCardProps) => {
         <div
           className={`${defaulContainer}--${pokemonDetail}__${pokemonTypes}`}
         >
-          <p>
-            {types
-              .map(type => type.charAt(0).toUpperCase() + type.slice(1))
-              .join('  ')}
-          </p>
+          {types.map((type, index) => (
+            <div key={index}>
+              <p>{type.charAt(0).toUpperCase() + type.slice(1)}</p>
+            </div>
+          ))}
         </div>
       </div>
       <div className={`${defaulContainer}--${pokemonImage}`}>

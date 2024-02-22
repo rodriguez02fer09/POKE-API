@@ -1,10 +1,18 @@
 import '../style/desktop.scss'
 
-const PokemonPlaces = () => {
+interface PokemonPlacesProps {
+  location_area_encounters: string
+}
+
+const PokemonPlaces: React.FC<PokemonPlacesProps> = props => {
+  const containPlces = 'contain-places'
+
   return (
-    <div>
-      <h1> lugares</h1>
+    <div className={`${containPlces}`}>
+      <h2>PLACES</h2>
+      <p>Places: {props.location_area_encounters}</p>
     </div>
   )
 }
+
 export default PokemonPlaces

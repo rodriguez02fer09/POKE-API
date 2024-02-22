@@ -8,7 +8,7 @@ interface PokemonCardProps {
   weight: number
   abilities: string[]
   types: string[]
-  locationData?: string // Propiedad opcional de información de ubicación
+
   openModal: (id: number) => void
 }
 

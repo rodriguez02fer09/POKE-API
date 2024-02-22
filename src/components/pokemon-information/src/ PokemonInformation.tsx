@@ -13,15 +13,19 @@ const PokemonInformation = ({
   pokemon,
   handleCloseModal,
 }: IPokemonInformation) => {
+  const {stats, location_area_encounters} = pokemon
   console.log(pokemon)
+  const defaulContainer = 'contain-info'
+  const buttonClose = 'button-close'
+  const button = 'button'
+
   return (
-    <div>
-      <div>
-        <button>
+    <div className={`${defaulContainer}`}>
+      <div className={`${defaulContainer}--${buttonClose}`}>
+        <button className={`${defaulContainer}--${buttonClose}__${button}`}>
           <img
             src={Close}
             alt=""
-            width="50px"
             onClick={() => {
               console.log('click')
               handleCloseModal()
@@ -29,11 +33,9 @@ const PokemonInformation = ({
           />
         </button>
       </div>
-      {/* <div>
-        <img src={Close} alt="" />
-      </div> */}
-      <Staticstis />
-      <PokemonPlaces />
+
+      <Staticstis stats={stats} />
+      <PokemonPlaces location_area_encounters={location_area_encounters} />
       <ImgPokemon pokemon={pokemon} />
     </div>
   )

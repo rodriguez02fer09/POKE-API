@@ -12,7 +12,6 @@ export const dataSlice = createSlice({
       state.pokemons = action.payload
     },
     getByIdPokemon: (state, action) => {
-      debugger
       state.pokemons.find((pokemon: any) => {
         if (pokemon.id === action.payload.id) {
           return pokemon

@@ -23,8 +23,18 @@ export const getPokemonTypes = async () => {
   }
 }
 
+export const getPlacesByPokemon = async path => {
+  try {
+    const response = await axios.get(path)
+    return response.data
+  } catch (error) {
+    console.error('Error fetching pokemon types:', error)
+  }
+}
+
 export default {
   getPokemon,
   getPokemonDetails,
   getPokemonTypes,
+  getPlacesByPokemon,
 }

@@ -21,9 +21,7 @@ const Staticstis = ({stats}: IStaticstis) => {
 
   return (
     <div className={`${ContainerStats}`}>
-      <h2 className={`${ContainerStats}--${NamePokemon}`}>
-        Pokémon Statistics
-      </h2>
+      <h2 className={`${ContainerStats}--${NamePokemon}`}> Estadisicas</h2>
       {stats ? (
         <div>
           {stats.map(({base_stat, effort}, index) => (

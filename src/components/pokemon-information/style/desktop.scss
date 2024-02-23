@@ -5,22 +5,23 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  overflow-y: auto;
+  border: none;
 
   &--button-close {
-    width: 50px;
+    width: 30px;
+    position: absolute;
+    right: 19px;
+    bottom: 708px;
 
-    position: relative;
-    right: 16px;
-    bottom: 19px;
-    background-color: rebeccapurple;
-
-    &__button {
+    s &__button {
       border: none;
+      position: relative;
       left: 203px;
       bottom: 51px;
     }
     img {
-      width: 50px;
+      width: 30px;
     }
   }
 }

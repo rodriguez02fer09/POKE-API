@@ -6,7 +6,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {getPokemon, getPokemonDetails} from '../api/index'
 
 //reducer
-import {setPokemons, getByIdPokemon} from '../redux/slice'
+import {addPokemons} from '../redux/slice'
 
 //Components
 import PokemonList from '../components/pokemon-list/src/PokemonList'
@@ -16,29 +16,32 @@ import PokemonInformation from '../components/pokemon-information/src/PokemonInf
 
 const CWAppPokemons = () => {
   const dispatch = useDispatch()
-  const pokemons = useSelector((state: any) => state.pokemons)
+  const {pokemons} = useSelector((state: any) => state.pokemons)
 
   const [openModal, setOpenModal] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [detailPokemon, setDetailPokemon] = useState({})
 
-  useEffect(() => {
-    const fetchPokemons = async () => {
-      try {
-        const pokemonsRes = await getPokemon()
-        const pokemonsDetailed = await Promise.all(
-          pokemonsRes.map((pokemon: any) => getPokemonDetails(pokemon)),
-        )
-        dispatch(setPokemons(pokemonsDetailed))
-      } catch (error) {
-        console.error('Error fetching pokemons:', error)
-      }
+  const fetchPokemons = async (offset: number) => {
+    setLoading(true)
+    try {
+      const pokemonsRes = await getPokemon(offset)
+      const pokemonsDetailed = await Promise.all(
+        pokemonsRes.map((pokemon: any) => getPokemonDetails(pokemon)),
+      )
+      dispatch(addPokemons(pokemonsDetailed))
+      setLoading(false)
+    } catch (error) {
+      console.error('Error fetching pokemons:', error)
     }
+  }
 
-    fetchPokemons()
+  useEffect(() => {
+    fetchPokemons(0)
   }, [])
 
   const handleOpenModal = (id: number) => {
-    const p = pokemons.pokemons.find(p => {
+    const p = pokemons.find((p: any) => {
       return p.id === id
     })
     setDetailPokemon(() => p)
@@ -53,7 +56,9 @@ const CWAppPokemons = () => {
       <Title />
       <PokemonList
         handleOpenModal={handleOpenModal}
-        pokemons={pokemons.pokemons}
+        pokemons={pokemons}
+        fetchPokemons={fetchPokemons}
+        loading={loading}
       />
       {openModal && (
         <Modal>

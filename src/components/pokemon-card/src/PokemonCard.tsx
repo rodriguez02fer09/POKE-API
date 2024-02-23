@@ -49,8 +49,6 @@ PokemonCardProps) => {
           <p>Height: {height}</p>
           <p>Weight: {weight}</p>
           <p>Ability: {abilities.length > 0 ? abilities[0] : 'Unknown'}</p>
-          {/* <p>Abilities: {abilities.join(', ')}</p> */}
-          {/* <p>Places: {locationData}</p> */}
         </div>
         <div
           className={`${defaulContainer}--${pokemonDetail}__${pokemonTypes}`}

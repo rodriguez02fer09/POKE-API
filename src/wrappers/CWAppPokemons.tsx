@@ -11,6 +11,8 @@ import {addPokemons} from '../redux/slice'
 //Components
 import PokemonList from '../components/pokemon-list/src/PokemonList'
 import Title from '../components/title/src/Title'
+import Pie from '../components/charts-panel/Pie'
+import BarChart from '../components/charts-panel/BarChart'
 import Modal from '../components/modal/src/Modal'
 import PokemonInformation from '../components/pokemon-information/src/PokemonInformation'
 
@@ -51,9 +53,33 @@ const CWAppPokemons = () => {
     setOpenModal(false)
   }
 
+  const contarTiposDePokemon = (pokemones: any) => {
+    const contadorTipos = pokemones.reduce((contador, pokemon) => {
+      if (pokemon.types && pokemon.types.length > 0) {
+        // Verificar si hay tipos de Pokémon
+        pokemon.types.forEach(type => {
+          const nombreTipo = type.type.name
+          contador[nombreTipo] = (contador[nombreTipo] || 0) + 1
+        })
+      }
+      return contador
+    }, {})
+
+    // Convertir el objeto contador a un array de arrays
+    const resultado = Object.entries(contadorTipos).map(([tipo, cantidad]) => [
+      tipo,
+      cantidad,
+    ])
+    resultado.unshift(['Tipo', 'Cantidad']) // Agregar el encabezado
+
+    return resultado
+  }
+
   return (
     <>
       <Title />
+      <Pie data={contarTiposDePokemon(pokemons)} />
+      <BarChart data={contarTiposDePokemon(pokemons)} />
       <PokemonList
         handleOpenModal={handleOpenModal}
         pokemons={pokemons}

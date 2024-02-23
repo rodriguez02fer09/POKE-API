@@ -68,7 +68,7 @@ const PokemonList: React.FC<PokemonListProps> = ({
               sprites,
             }: Pokemon) => (
               <PokemonCard
-                key={id}
+                key={`id-${name}`}
                 id={id}
                 name={name}
                 height={height}

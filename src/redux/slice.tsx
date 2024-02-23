@@ -15,6 +15,15 @@ export const dataSlice = createSlice({
     addPokemons(state, action) {
       state.pokemons.push(...action.payload)
     },
+    filterType(state, action) {
+      const {tipoBuscado} = action.payload
+      state.pokemons = state.pokemons.filter(pokemon => {
+        const tiposFiltrados = pokemon.types.filter(
+          tipo => tipo.type.name === tipoBuscado,
+        )
+        return tiposFiltrados.length > 0
+      })
+    },
     getByIdPokemon: (state, action) => {
       state.pokemons.find((pokemon: any) => {
         if (pokemon.id === action.payload.id) {
@@ -25,5 +34,5 @@ export const dataSlice = createSlice({
   },
 })
 
-export const {addPokemons, getByIdPokemon} = dataSlice.actions
+export const {addPokemons, getByIdPokemon, filterType} = dataSlice.actions
 export default dataSlice.reducer

@@ -1,6 +1,10 @@
 import {createSlice} from '@reduxjs/toolkit'
 
-const initialState = {
+interface AppState {
+  pokemons: any[] // Adjust this type according to your actual state structure
+}
+
+const initialState: AppState = {
   pokemons: [],
 }
 
@@ -8,8 +12,8 @@ export const dataSlice = createSlice({
   name: 'data',
   initialState,
   reducers: {
-    setPokemons: (state, action) => {
-      state.pokemons = action.payload
+    addPokemons(state, action) {
+      state.pokemons.push(...action.payload)
     },
     getByIdPokemon: (state, action) => {
       state.pokemons.find((pokemon: any) => {
@@ -21,5 +25,5 @@ export const dataSlice = createSlice({
   },
 })
 
-export const {setPokemons, getByIdPokemon} = dataSlice.actions
+export const {addPokemons, getByIdPokemon} = dataSlice.actions
 export default dataSlice.reducer

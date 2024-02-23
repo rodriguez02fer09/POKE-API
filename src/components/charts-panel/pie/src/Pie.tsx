@@ -1,6 +1,7 @@
 import {Chart} from 'react-google-charts'
 import {filterType} from '../../../../redux/slice'
 import {useDispatch} from 'react-redux'
+import PokemonLoader from '../../../pokemonloader/src/PokemonLoader'
 
 const Pie = ({
   data = [
@@ -35,7 +36,7 @@ const Pie = ({
       width={'300px'}
       height={'300px'}
       chartType="PieChart"
-      loader={<div>Cargando Gráfico</div>}
+      loader={<PokemonLoader />}
       data={data}
       options={options}
       chartEvents={[

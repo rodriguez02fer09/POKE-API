@@ -2,6 +2,7 @@ import React, {useEffect, useRef, useState} from 'react'
 import PokemonCard from '../../pokemon-card/src/PokemonCard'
 import '../style/desktop.scss'
 import {useIntersectionObserver} from '@uidotdev/usehooks'
+import PokemonSpiner from '../../pokemonSpiner/src/PokemonSpiner'
 
 interface Type {
   slot: number
@@ -86,7 +87,11 @@ const PokemonList: React.FC<PokemonListProps> = ({
       {pokemons && pokemons.length > 0 && !loading && (
         <div className="target" ref={ref}></div>
       )}
-      {loading && <p className="loading">Loading ....</p>}
+      {true && (
+        <div className="loading">
+          <PokemonSpiner />
+        </div>
+      )}
     </div>
   )
 }

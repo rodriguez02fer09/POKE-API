@@ -29,10 +29,10 @@ const BarChart = ({
 
   return (
     <Chart
-      width={'500px'} // Adjust width as needed
-      height={'300px'} // Adjust height as needed
-      chartType="BarChart" // Use BarChart type
-      loader={<div>Cargando Gráfico</div>}
+      className="contain-chart"
+      width={'500px'}
+      height={'300px'}
+      chartType="BarChart"
       data={data}
       options={options}
       chartEvents={[

@@ -8,7 +8,7 @@ const PokemonPlaces: React.FC<any> = ({locationAreaEncounters}) => {
   return (
     <div className={containPlaces}>
       {' '}
-      <h2>PLACES</h2>
+      <h2>Lugares donde se encuentra</h2>
       <p>
         {locationAreaEncounters.length > 0 &&
           locationAreaEncounters?.map(({location_area}: any) => {

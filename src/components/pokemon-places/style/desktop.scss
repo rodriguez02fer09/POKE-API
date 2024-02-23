@@ -1,8 +1,22 @@
 .contain-places {
-  width: 500px;
-  height: 100px;
+  min-width: 400px; /* Ajusta según sea necesario */
+  min-height: 200px; /* Ajusta según sea necesario */
+  padding-top: 10px; /* Ajusta según sea necesario */
+  margin-top: 10px;
+  font-family: 'Rubik', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0 rgba(20, 20, 20, 0.2);
+  overflow-y: auto;
+  h2 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  p {
+    padding: 1px;
+    font-size: 16px;
+  }
 }

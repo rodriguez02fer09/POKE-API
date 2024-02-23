@@ -11,11 +11,9 @@ import {addPokemons} from '../redux/slice'
 //Components
 import PokemonList from '../components/pokemon-list/src/PokemonList'
 import Title from '../components/title/src/Title'
-import Pie from '../components/charts-panel/pie/src/Pie'
-import BarChart from '../components/charts-panel/barChard/src/BarChart'
 import Modal from '../components/modal/src/Modal'
 import PokemonInformation from '../components/pokemon-information/src/PokemonInformation'
-
+import ContainPanel from '../components/charts-panel/contain-panel/src/ContainPanel'
 const CWAppPokemons = () => {
   const dispatch = useDispatch()
   const {pokemons} = useSelector((state: any) => state.pokemons)
@@ -78,8 +76,7 @@ const CWAppPokemons = () => {
   return (
     <>
       <Title />
-      <Pie data={contarTiposDePokemon(pokemons)} />
-      <BarChart data={contarTiposDePokemon(pokemons)} />
+      <ContainPanel data={contarTiposDePokemon(pokemons)} />
       <PokemonList
         handleOpenModal={handleOpenModal}
         pokemons={pokemons}

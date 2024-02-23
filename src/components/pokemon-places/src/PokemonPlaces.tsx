@@ -1,16 +1,21 @@
 import '../style/desktop.scss'
 
-interface PokemonPlacesProps {
-  location_area_encounters: string
-}
+import React from 'react'
 
-const PokemonPlaces: React.FC<PokemonPlacesProps> = props => {
-  const containPlces = 'contain-places'
+const PokemonPlaces: React.FC<any> = ({locationAreaEncounters}) => {
+  const containPlaces = 'contain-places'
 
   return (
-    <div className={`${containPlces}`}>
+    <div className={containPlaces}>
+      {' '}
       <h2>PLACES</h2>
-      <p>Places: {props.location_area_encounters}</p>
+      <p>
+        {locationAreaEncounters.length > 0 &&
+          locationAreaEncounters?.map(({location_area}: any) => {
+            return <p>{location_area.name}</p>
+          })}
+        {locationAreaEncounters.length == 0 && <p>sin ubicaciones</p>}
+      </p>
     </div>
   )
 }

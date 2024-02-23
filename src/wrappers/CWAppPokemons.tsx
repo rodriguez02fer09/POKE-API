@@ -12,7 +12,7 @@ import {setPokemons, getByIdPokemon} from '../redux/slice'
 import PokemonList from '../components/pokemon-list/src/PokemonList'
 import Title from '../components/title/src/Title'
 import Modal from '../components/modal/src/Modal'
-import PokemonInformation from '../components/pokemon-information/src/ PokemonInformation'
+import PokemonInformation from '../components/pokemon-information/src/PokemonInformation'
 
 const CWAppPokemons = () => {
   const dispatch = useDispatch()

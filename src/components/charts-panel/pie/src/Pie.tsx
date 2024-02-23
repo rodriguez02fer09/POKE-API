@@ -1,5 +1,5 @@
 import {Chart} from 'react-google-charts'
-import {filterType} from '../../redux/slice'
+import {filterType} from '../../../../redux/slice'
 import {useDispatch} from 'react-redux'
 
 const Pie = ({

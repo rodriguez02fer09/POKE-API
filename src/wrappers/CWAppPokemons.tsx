@@ -11,8 +11,8 @@ import {addPokemons} from '../redux/slice'
 //Components
 import PokemonList from '../components/pokemon-list/src/PokemonList'
 import Title from '../components/title/src/Title'
-import Pie from '../components/charts-panel/Pie'
-import BarChart from '../components/charts-panel/BarChart'
+import Pie from '../components/charts-panel/pie/src/Pie'
+import BarChart from '../components/charts-panel/barChard/src/BarChart'
 import Modal from '../components/modal/src/Modal'
 import PokemonInformation from '../components/pokemon-information/src/PokemonInformation'
 
@@ -70,7 +70,7 @@ const CWAppPokemons = () => {
       tipo,
       cantidad,
     ])
-    resultado.unshift(['Tipo', 'Cantidad']) // Agregar el encabezado
+    resultado.unshift(['Tipo', 'Cantidad'])
 
     return resultado
   }

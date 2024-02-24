@@ -1,5 +1,12 @@
 # Aplicación de Pokémon
 
+## Clonar repositortio
+
+Corre el siguiente comando teniendo git intalado
+
+```bash
+git clone git@github.com:rodriguez02fer09/POKE-API.git
+```
 
 ## Instalacion de dependencias del proyecto
 

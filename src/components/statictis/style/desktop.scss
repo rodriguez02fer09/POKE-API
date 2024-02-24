@@ -1,0 +1,13 @@
+.contain-staticstis {
+  width: 500px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  &--name-pokemon {
+  }
+  p {
+    padding: 3px;
+  }
+}

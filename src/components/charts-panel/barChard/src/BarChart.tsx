@@ -12,17 +12,17 @@ const BarChart = ({
 }) => {
   const options = {
     legend: 'none',
-    chartArea: {left: 15, top: 15, right: 0, bottom: 30}, // Adjust bottom margin for x-axis labels
-    hAxis: {title: 'Cantidad'}, // Customize x-axis label
-    vAxis: {title: 'Tipo'}, // Customize y-axis label
+    chartArea: {left: 15, top: 15, right: 0, bottom: 30},
+    hAxis: {title: 'Cantidad'},
+    vAxis: {title: 'Tipo'},
   }
 
-  const handleSelect = chartWrapper => {
+  const handleSelect = (chartWrapper: any) => {
     const chart = chartWrapper.getChart()
     const selectedItem = chart.getSelection()[0]
     if (selectedItem) {
       const {row} = selectedItem
-      const tipoSeleccionado = data[row + 1][0]
+      const tipoSeleccionado = data[row + 1]
       console.log(`Se ha seleccionado el tipo de Pokémon: ${tipoSeleccionado}`)
     }
   }

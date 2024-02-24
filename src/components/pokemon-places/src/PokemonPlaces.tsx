@@ -9,13 +9,13 @@ const PokemonPlaces: React.FC<any> = ({locationAreaEncounters}) => {
     <div className={containPlaces}>
       {' '}
       <h2>Lugares donde se encuentra</h2>
-      <p>
+      <div className={`${containPlaces}-scroll`}>
         {locationAreaEncounters.length > 0 &&
           locationAreaEncounters?.map(({location_area}: any) => {
             return <p>{location_area.name}</p>
           })}
         {locationAreaEncounters.length == 0 && <p>sin ubicaciones</p>}
-      </p>
+      </div>
     </div>
   )
 }

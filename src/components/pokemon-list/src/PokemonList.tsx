@@ -39,12 +39,17 @@ const PokemonList: React.FC<PokemonListProps> = ({
   loading = false,
 }: PokemonListProps) => {
   const [offset, setOffset] = useState(0)
+  const [reRender, setReRender] = useState(1)
 
   const [ref, entry] = useIntersectionObserver({
     threshold: 0.5,
     root: null,
     rootMargin: '0px',
   })
+
+  useEffect(() => {
+    setReRender(() => Math.random())
+  }, [pokemons])
 
   useEffect(() => {
     if (entry && entry.isIntersecting) {
@@ -54,7 +59,7 @@ const PokemonList: React.FC<PokemonListProps> = ({
   }, [entry])
 
   return (
-    <div>
+    <div key={reRender}>
       <div className="contain-pokemonList">
         {pokemons &&
           pokemons.length > 0 &&
@@ -69,7 +74,7 @@ const PokemonList: React.FC<PokemonListProps> = ({
               sprites,
             }: Pokemon) => (
               <PokemonCard
-                key={`id-${name}`}
+                key={id}
                 id={id}
                 name={name}
                 height={height}
@@ -87,7 +92,7 @@ const PokemonList: React.FC<PokemonListProps> = ({
       {pokemons && pokemons.length > 0 && !loading && (
         <div className="target" ref={ref}></div>
       )}
-      {true && (
+      {loading && (
         <div className="loading">
           <PokemonSpiner />
         </div>

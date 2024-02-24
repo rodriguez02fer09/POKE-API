@@ -32,6 +32,7 @@ const CWAppPokemons = () => {
       dispatch(addPokemons(pokemonsDetailed))
       setLoading(false)
     } catch (error) {
+      setLoading(false)
       console.error('Error fetching pokemons:', error)
     }
   }
@@ -54,7 +55,6 @@ const CWAppPokemons = () => {
   const contarTiposDePokemon = (pokemones: any) => {
     const contadorTipos = pokemones.reduce((contador, pokemon) => {
       if (pokemon.types && pokemon.types.length > 0) {
-        // Verificar si hay tipos de Pokémon
         pokemon.types.forEach(type => {
           const nombreTipo = type.type.name
           contador[nombreTipo] = (contador[nombreTipo] || 0) + 1
@@ -63,7 +63,6 @@ const CWAppPokemons = () => {
       return contador
     }, {})
 
-    // Convertir el objeto contador a un array de arrays
     const resultado = Object.entries(contadorTipos).map(([tipo, cantidad]) => [
       tipo,
       cantidad,

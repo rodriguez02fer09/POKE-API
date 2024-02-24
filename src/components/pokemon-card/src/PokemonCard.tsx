@@ -13,21 +13,21 @@ interface PokemonCardProps {
 
 const pokemonTypesWithColors: any = {
   normal: '#4fdd77',
-  fighting: '#b46f29',
-  flying: '#83f81f',
-  poison: '#2f4267',
+  fighting: '##fc6344',
+  flying: '#68f5e6',
+  poison: '#9e840e',
   ground: '#7bde85',
-  rock: '#1b0493',
+  rock: '#838579',
   bug: '#58a743',
   ghost: '#1a6a51',
   steel: '#09d66c',
-  fire: '#9cf6c8',
-  water: '#69c88b',
-  grass: '#f42e63',
+  fire: '#f42e63',
+  water: '#00ffff ',
+  grass: '#9cf6c8',
   electric: '#7d4ebd',
   psychic: '#07f21b',
   ice: '#23d37b',
-  dragon: '#68f5e6',
+  dragon: '#cc4834',
   dark: '#0b2173',
   fairy: '#f5c7de',
   unknown: '#ac8fd8',
@@ -46,6 +46,7 @@ const PokemonCard = ({
 }: PokemonCardProps) => {
   const typeColor = (type: string) => ({
     background: `${pokemonTypesWithColors[type]}`,
+    border: `1px solid white`,
   })
   const gradientStyle = {
     background: `linear-gradient(to right, ${

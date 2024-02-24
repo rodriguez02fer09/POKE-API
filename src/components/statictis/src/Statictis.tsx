@@ -1,4 +1,3 @@
-import {useSelector} from 'react-redux'
 import '../style/desktop.scss'
 
 interface IStats {

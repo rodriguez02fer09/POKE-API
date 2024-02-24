@@ -18,10 +18,7 @@ export const dataSlice = createSlice({
     filterType(state, action) {
       const {tipoBuscado} = action.payload
       state.pokemons = state.pokemons.filter(pokemon => {
-        const tiposFiltrados = pokemon.types.filter(
-          tipo => tipo.type.name === tipoBuscado,
-        )
-        return tiposFiltrados.length > 0
+        return pokemon.types.some(tipo => tipo.type.name === tipoBuscado)
       })
     },
     getByIdPokemon: (state, action) => {

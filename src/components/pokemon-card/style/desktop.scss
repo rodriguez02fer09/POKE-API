@@ -1,7 +1,9 @@
 .card-container {
   height: 150px;
+  color: #3b3333;
   width: 335px;
   border-radius: 15px;
+  padding: 15px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -11,7 +13,7 @@
   background-color: rgb(147, 234, 240);
   &--pokemon-details {
     height: 145px;
-    width: 155px;
+    width: 225px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
